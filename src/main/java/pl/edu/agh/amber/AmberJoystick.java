@@ -9,17 +9,15 @@ import java.io.IOException;
 
 public class AmberJoystick implements JoystickListener, Runnable {
 
-    private final int MAX_SPEED = 2500;
-
     private float x;
     private float y;
     private boolean stop = true;
 
     public static void main(String[] args) {
-        (new AmberJoystick()).runDemo(args[0], Integer.parseInt(args[1]));
+        (new AmberJoystick()).runDemo(args[0], Integer.parseInt(args[1]), Integer.parseInt(args[2]));
     }
 
-    public void runDemo(String address, int joy) {
+    public void runDemo(String address, int joy, int max_speed) {
 
         try {
             Joystick joystick = Joystick.createInstance(joy);
@@ -73,8 +71,8 @@ public class AmberJoystick implements JoystickListener, Runnable {
                         motorsLeftSpeed = 1;
                         motorsRightSpeed = 1;
                     } else {
-                        motorsRightSpeed = (int) (rSpeed * MAX_SPEED);
-                        motorsLeftSpeed = (int) (lSpeed * MAX_SPEED);
+                        motorsRightSpeed = (int) (rSpeed * max_speed);
+                        motorsLeftSpeed = (int) (lSpeed * max_speed);
                     }
                 }
 
