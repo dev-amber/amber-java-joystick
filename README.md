@@ -1,5 +1,5 @@
-amber-java-joystick
-===================
+app-drive-with-joystick
+=======================
 
 Requirements
 ------------
